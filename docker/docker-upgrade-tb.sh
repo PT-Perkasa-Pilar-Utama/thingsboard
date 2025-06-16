@@ -15,20 +15,19 @@
 # limitations under the License.
 #
 
-for i in "$@"
-do
-case $i in
+for i in "$@"; do
+    case $i in
     --fromVersion=*)
-    FROM_VERSION="${i#*=}"
-    shift
-    ;;
+        FROM_VERSION="${i#*=}"
+        shift
+        ;;
     *)
-            # unknown option
-    ;;
-esac
+        # unknown option
+        ;;
+    esac
 done
 
-fromVersion="${FROM_VERSION// }"
+fromVersion="${FROM_VERSION// /}"
 
 set -e
 
@@ -49,7 +48,7 @@ ADDITIONAL_STARTUP_SERVICES=$(additionalStartupServices) || exit $?
 COMPOSE_ARGS_PULL="\
       -f docker-compose.yml ${ADDITIONAL_CACHE_ARGS} ${ADDITIONAL_COMPOSE_ARGS} ${ADDITIONAL_COMPOSE_QUEUE_ARGS} ${ADDITIONAL_COMPOSE_EDQS_ARGS} \
       pull \
-      tb-core1"
+      tb-core"
 
 COMPOSE_ARGS_UP="\
       -f docker-compose.yml ${ADDITIONAL_CACHE_ARGS} ${ADDITIONAL_COMPOSE_ARGS} ${ADDITIONAL_COMPOSE_QUEUE_ARGS} ${ADDITIONAL_COMPOSE_EDQS_ARGS} \
@@ -58,20 +57,20 @@ COMPOSE_ARGS_UP="\
 COMPOSE_ARGS_RUN="\
       -f docker-compose.yml ${ADDITIONAL_CACHE_ARGS} ${ADDITIONAL_COMPOSE_ARGS} ${ADDITIONAL_COMPOSE_QUEUE_ARGS} ${ADDITIONAL_COMPOSE_EDQS_ARGS} \
       run --no-deps --rm -e UPGRADE_TB=true -e FROM_VERSION=${fromVersion} \
-      tb-core1"
+      tb-core"
 
 case $COMPOSE_VERSION in
-    V2)
-        docker compose $COMPOSE_ARGS_PULL
-        docker compose $COMPOSE_ARGS_UP
-        docker compose $COMPOSE_ARGS_RUN
+V2)
+    docker compose $COMPOSE_ARGS_PULL
+    docker compose $COMPOSE_ARGS_UP
+    docker compose $COMPOSE_ARGS_RUN
     ;;
-    V1)
-        docker-compose $COMPOSE_ARGS_PULL
-        docker-compose $COMPOSE_ARGS_UP
-        docker-compose $COMPOSE_ARGS_RUN
+V1)
+    docker-compose $COMPOSE_ARGS_PULL
+    docker-compose $COMPOSE_ARGS_UP
+    docker-compose $COMPOSE_ARGS_RUN
     ;;
-    *)
-        # unknown option
+*)
+    # unknown option
     ;;
 esac
