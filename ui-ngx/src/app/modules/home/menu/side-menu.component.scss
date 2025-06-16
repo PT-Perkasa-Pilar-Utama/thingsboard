@@ -15,21 +15,20 @@
  */
 :host {
   width: 100%;
+  background-color: #ffffff;
 }
 
 :host ::ng-deep {
-
   .tb-side-menu,
   .tb-side-menu ul {
     padding: 0;
     margin-top: 0;
     list-style: none;
   }
-
   .tb-side-menu > li {
-    border-bottom: 1px solid rgba(0, 0, 0, .12);
+    border-bottom: 1px solid #f5f5f5;
+    background-color: #ffffff;
   }
-
   a.mat-mdc-button.mat-mdc-button-base {
     display: inline-flex;
     width: 100%;
@@ -39,21 +38,25 @@
     line-height: 40px;
     border-radius: 0;
     padding: 0 16px;
+    color: #1e1e1e;
+    background-color: #ffffff;
     &:hover {
       border-bottom: none;
-      background-color: rgba(255,255,255,0.08);
+      background-color: #f5f5f5;
     }
     &:focus {
       border-bottom: none;
+      background-color: #f5f5f5;
     }
     &.tb-active {
-      background-color: rgba(255, 255, 255, .15);
+      background-color: #e3f2fd;
     }
     .mat-icon {
       margin-right: 8px;
       margin-left: 0;
       min-width: 1.125rem;
       min-height: 1.125rem;
+      color: #1e1e1e;
     }
     span.mdc-button__label {
       width: 100%;
@@ -61,13 +64,16 @@
       text-overflow: ellipsis;
       white-space: nowrap;
       display: inline-flex;
+      color: #1e1e1e;
       & > span {
         overflow: hidden;
         text-overflow: ellipsis;
+        color: #1e1e1e;
       }
       .tb-toggle-icon {
         padding-top: 12px;
         padding-bottom: 12px;
+        color: #1e1e1e;
       }
     }
   }

@@ -13,17 +13,16 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-$mainColor: var(--tb-slider-main-color, #5469FF);
-$hoverRippleColor: var(--tb-slider-hover-ripple-color, rgba(84, 105, 255, 0.05));
-$focusRippleColor: var(--tb-slider-focus-ripple-color, rgba(84, 105, 255, 0.2));
-$backgroundColor: var(--tb-slider-background-color, #CCD2FF);
-$tickMarksColor: var(--tb-slider-tick-marks-color, #5469FF);
+$mainColor: var(--tb-slider-main-color, #004aad);
+$hoverRippleColor: var(--tb-slider-hover-ripple-color, rgba(0, 74, 173, 0.05));
+$focusRippleColor: var(--tb-slider-focus-ripple-color, rgba(0, 74, 173, 0.2));
+$backgroundColor: var(--tb-slider-background-color, #ccd2ff);
+$tickMarksColor: var(--tb-slider-tick-marks-color, #004aad);
 
-$mainColorDisabled: var(--tb-slider-main-color-disabled, #9BA2B0);
-$backgroundColorDisabled: var(--tb-slider-background-color-disabled, #D5D7E5);
+$mainColorDisabled: var(--tb-slider-main-color-disabled, #9ba2b0);
+$backgroundColorDisabled: var(--tb-slider-background-color-disabled, #d5d7e5);
 
 .tb-slider-panel {
-
   .mat-mdc-slider.mat-primary.tb-slider {
     --mdc-slider-active-track-color: #{$mainColor};
     --mdc-slider-handle-color: #{$mainColor};
@@ -55,7 +54,8 @@ $backgroundColorDisabled: var(--tb-slider-background-color-disabled, #D5D7E5);
   flex-direction: column;
   padding: 20px 24px 24px 24px;
   gap: 8px;
-  > div:not(.tb-slider-overlay), > tb-icon {
+  > div:not(.tb-slider-overlay),
+  > tb-icon {
     z-index: 1;
   }
   .tb-slider-overlay {

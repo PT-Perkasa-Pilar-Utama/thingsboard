@@ -17,9 +17,9 @@ $tumblerColorOn: var(--tb-single-switch-tumbler-color-on, #fff);
 $tumblerColorOff: var(--tb-single-switch-tumbler-color-off, #fff);
 $tumblerColorDisabled: var(--tb-single-switch-tumbler-color-disabled, #fff);
 
-$switchColorOn: var(--tb-single-switch-color-on, #5469FF);
-$switchColorOff: var(--tb-single-switch-color-off, rgba(84, 105, 255, 0.30));
-$switchColorDisabled: var(--tb-single-switch-color-disabled, #D5D7E5);
+$switchColorOn: var(--tb-single-switch-color-on, #004aad);
+$switchColorOff: var(--tb-single-switch-color-off, rgba(0, 74, 173, 0.3));
+$switchColorDisabled: var(--tb-single-switch-color-disabled, #d5d7e5);
 
 .tb-single-switch-panel {
   width: 100%;
@@ -32,7 +32,8 @@ $switchColorDisabled: var(--tb-single-switch-color-disabled, #D5D7E5);
   &.auto-scale {
     padding: 0;
   }
-  > div:not(.tb-single-switch-overlay), > tb-icon {
+  > div:not(.tb-single-switch-overlay),
+  > tb-icon {
     z-index: 1;
   }
   .tb-single-switch-overlay {
@@ -100,7 +101,8 @@ $switchColorDisabled: var(--tb-single-switch-color-disabled, #D5D7E5);
           .mdc-switch__track {
             height: 22px;
             border-radius: 11px;
-            &::after, &::before {
+            &::after,
+            &::before {
               border: none;
             }
           }
@@ -123,7 +125,8 @@ $switchColorDisabled: var(--tb-single-switch-color-disabled, #D5D7E5);
           &:disabled {
             .mdc-switch__track {
               opacity: 1;
-              &::after, &::before {
+              &::after,
+              &::before {
                 background: $switchColorDisabled;
               }
             }
@@ -132,7 +135,8 @@ $switchColorDisabled: var(--tb-single-switch-color-disabled, #D5D7E5);
               background: $tumblerColorDisabled;
             }
           }
-          &:enabled, &:enabled:hover {
+          &:enabled,
+          &:enabled:hover {
             .mdc-switch__track {
               &::after {
                 background: $switchColorOn;

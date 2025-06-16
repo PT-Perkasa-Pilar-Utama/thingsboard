@@ -15,11 +15,13 @@
  */
 :host {
   min-width: 0;
+  color: #1e1e1e;
 
   .tb-breadcrumb {
     font-size: 18px;
     font-weight: 400;
     overflow: hidden;
+    color: #1e1e1e;
 
     h1,
     a,
@@ -27,21 +29,24 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+      color: #1e1e1e;
       .mat-icon {
         vertical-align: bottom;
+        color: #1e1e1e;
       }
     }
 
     h1 {
       font-size: 24px;
       font-weight: 400;
+      color: #1e1e1e;
     }
 
     a {
       border: none;
-      opacity: .75;
-      transition: opacity .35s;
-      color: inherit;
+      opacity: 0.75;
+      transition: opacity 0.35s;
+      color: #1e1e1e;
       text-decoration: none;
       outline: none;
     }
@@ -52,9 +57,9 @@
       border: none;
       opacity: 1;
     }
-
     .divider {
       padding: 0 20px;
+      color: #1e1e1e;
     }
   }
 }

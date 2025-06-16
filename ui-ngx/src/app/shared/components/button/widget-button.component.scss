@@ -13,39 +13,98 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-$defaultMainColor: #3F52DD;
-$defaultBackgroundColor: #FFFFFF;
+$defaultMainColor: #004aad;
+$defaultBackgroundColor: #ffffff;
 $defaultBoxShadowColor: rgba(0, 0, 0, 0.08);
 $defaultDisabledBoxShadowColor: rgba(0, 0, 0, 0);
 
 $defaultMainColorDisabled: rgba(0, 0, 0, 0.38);
 $defaultBackgroundColorDisabled: rgba(0, 0, 0, 0.03);
 
-$mainColorEnabled: var(--tb-widget-button-main-color-enabled, $defaultMainColor);
-$backgroundColorEnabled: var(--tb-widget-button-background-color-enabled, $defaultBackgroundColor);
-$boxShadowColorEnabled: var(--tb-widget-button-box-shadow-color-enabled, $defaultBoxShadowColor);
+$mainColorEnabled: var(
+  --tb-widget-button-main-color-enabled,
+  $defaultMainColor
+);
+$backgroundColorEnabled: var(
+  --tb-widget-button-background-color-enabled,
+  $defaultBackgroundColor
+);
+$boxShadowColorEnabled: var(
+  --tb-widget-button-box-shadow-color-enabled,
+  $defaultBoxShadowColor
+);
 
-$mainColorHovered: var(--tb-widget-button-main-color-hovered, $defaultMainColor);
-$backgroundColorHovered: var(--tb-widget-button-background-color-hovered, $defaultBackgroundColor);
-$boxShadowColorHovered: var(--tb-widget-button-box-shadow-color-hovered, $defaultBoxShadowColor);
-$mainColorHoveredFilled: var(--tb-widget-button-main-color-hovered-filled, #3347db); // main.darken(6)
+$mainColorHovered: var(
+  --tb-widget-button-main-color-hovered,
+  $defaultMainColor
+);
+$backgroundColorHovered: var(
+  --tb-widget-button-background-color-hovered,
+  $defaultBackgroundColor
+);
+$boxShadowColorHovered: var(
+  --tb-widget-button-box-shadow-color-hovered,
+  $defaultBoxShadowColor
+);
+$mainColorHoveredFilled: var(
+  --tb-widget-button-main-color-hovered-filled,
+  #003a8c
+); // main.darken(6)
 
-$mainColorPressed: var(--tb-widget-button-main-color-pressed, $defaultMainColor);
-$backgroundColorPressed: var(--tb-widget-button-background-color-pressed, $defaultBackgroundColor);
-$boxShadowColorPressed: var(--tb-widget-button-box-shadow-color-pressed, $defaultBoxShadowColor);
-$mainColorPressedFilled: var(--tb-widget-button-main-color-pressed-filled, #273cd9); // main.darken(12)
-$mainColorPressedRipple: var(--tb-widget-button-main-color-pressed-ripple, rgba(63, 82, 221, 0.1)); // Alpha(Main, 0.1)
-$mainColorPressedRippleFilled: var(--tb-widget-button-main-color-pressed-ripple-filled, #2439cd); // main.darken(18)
+$mainColorPressed: var(
+  --tb-widget-button-main-color-pressed,
+  $defaultMainColor
+);
+$backgroundColorPressed: var(
+  --tb-widget-button-background-color-pressed,
+  $defaultBackgroundColor
+);
+$boxShadowColorPressed: var(
+  --tb-widget-button-box-shadow-color-pressed,
+  $defaultBoxShadowColor
+);
+$mainColorPressedFilled: var(
+  --tb-widget-button-main-color-pressed-filled,
+  #002f73
+); // main.darken(12)
+$mainColorPressedRipple: var(
+  --tb-widget-button-main-color-pressed-ripple,
+  rgba(0, 74, 173, 0.1)
+); // Alpha(Main, 0.1)
+$mainColorPressedRippleFilled: var(
+  --tb-widget-button-main-color-pressed-ripple-filled,
+  #001f5a
+); // main.darken(18)
 
-$mainColorActivated: var(--tb-widget-button-main-color-activated, $defaultMainColor);
-$backgroundColorActivated: var(--tb-widget-button-background-color-activated, $defaultBackgroundColor);
-$boxShadowColorActivated: var(--tb-widget-button-box-shadow-color-activated, $defaultBoxShadowColor);
-$mainColorActivatedFilled: var(--tb-widget-button-main-color-activated-filled, #273cd9); // main.darken(12)
+$mainColorActivated: var(
+  --tb-widget-button-main-color-activated,
+  $defaultMainColor
+);
+$backgroundColorActivated: var(
+  --tb-widget-button-background-color-activated,
+  $defaultBackgroundColor
+);
+$boxShadowColorActivated: var(
+  --tb-widget-button-box-shadow-color-activated,
+  $defaultBoxShadowColor
+);
+$mainColorActivatedFilled: var(
+  --tb-widget-button-main-color-activated-filled,
+  #002f73
+); // main.darken(12)
 
-$mainColorDisabled: var(--tb-widget-button-main-color-disabled, $defaultMainColorDisabled);
-$backgroundColorDisabled: var(--tb-widget-button-background-color-disabled, $defaultBackgroundColorDisabled);
-$boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defaultBoxShadowColor);
-
+$mainColorDisabled: var(
+  --tb-widget-button-main-color-disabled,
+  $defaultMainColorDisabled
+);
+$backgroundColorDisabled: var(
+  --tb-widget-button-background-color-disabled,
+  $defaultBackgroundColorDisabled
+);
+$boxShadowColorDisabled: var(
+  --tb-widget-button-box-shadow-color-disabled,
+  $defaultBoxShadowColor
+);
 
 @mixin _tb-widget-button-styles($main, $background, $boxShadow) {
   color: $main;
@@ -65,7 +124,6 @@ $boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defa
     background-color: transparent;
   }
 }
-
 
 .mat-mdc-button.mat-mdc-button-base.tb-widget-button {
   width: 100%;
@@ -104,10 +162,15 @@ $boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defa
     opacity: 0;
   }
 
-  @include _tb-widget-button-styles($mainColorEnabled, $backgroundColorEnabled, $boxShadowColorEnabled);
+  @include _tb-widget-button-styles(
+    $mainColorEnabled,
+    $backgroundColorEnabled,
+    $boxShadowColorEnabled
+  );
 
   &:not(:disabled):not(.tb-disabled-state) {
-    &:hover, &.tb-hover-state {
+    &:hover,
+    &.tb-hover-state {
       &:not(:active):not(.tb-active-state) {
         &:not(.tb-filled) {
           .mat-mdc-button-persistent-ripple::before {
@@ -121,7 +184,11 @@ $boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defa
             background-color: $mainColorHoveredFilled;
           }
         }
-        @include _tb-widget-button-styles($mainColorHovered, $backgroundColorHovered, $boxShadowColorHovered);
+        @include _tb-widget-button-styles(
+          $mainColorHovered,
+          $backgroundColorHovered,
+          $boxShadowColorHovered
+        );
       }
     }
     &.tb-pressed-state {
@@ -148,7 +215,8 @@ $boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defa
         }
       }
     }
-    &.tb-pressed, &.tb-pressed-state {
+    &.tb-pressed,
+    &.tb-pressed-state {
       &:not(.tb-filled) {
         .mat-mdc-button-persistent-ripple::before {
           opacity: 0.12;
@@ -161,9 +229,14 @@ $boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defa
           background-color: $mainColorPressedFilled;
         }
       }
-      @include _tb-widget-button-styles($mainColorPressed, $backgroundColorPressed, $boxShadowColorPressed);
+      @include _tb-widget-button-styles(
+        $mainColorPressed,
+        $backgroundColorPressed,
+        $boxShadowColorPressed
+      );
     }
-    &:active, &.tb-active-state {
+    &:active,
+    &.tb-active-state {
       &:not(.tb-pressed):not(.tb-pressed-state) {
         &:not(.tb-filled) {
           .mat-mdc-button-persistent-ripple::before {
@@ -177,17 +250,30 @@ $boxShadowColorDisabled: var(--tb-widget-button-box-shadow-color-disabled, $defa
             background-color: $mainColorActivatedFilled;
           }
         }
-        @include _tb-widget-button-styles($mainColorActivated, $backgroundColorActivated, $boxShadowColorActivated);
+        @include _tb-widget-button-styles(
+          $mainColorActivated,
+          $backgroundColorActivated,
+          $boxShadowColorActivated
+        );
       }
     }
   }
 
-  &:disabled, &.tb-disabled-state {
+  &:disabled,
+  &.tb-disabled-state {
     &:not(.tb-filled) {
-      @include _tb-widget-button-styles($mainColorDisabled, $backgroundColorDisabled, $boxShadowColorDisabled);
+      @include _tb-widget-button-styles(
+        $mainColorDisabled,
+        $backgroundColorDisabled,
+        $boxShadowColorDisabled
+      );
     }
     &.tb-filled {
-      @include _tb-widget-button-styles($backgroundColorDisabled, $mainColorDisabled, $boxShadowColorDisabled);
+      @include _tb-widget-button-styles(
+        $backgroundColorDisabled,
+        $mainColorDisabled,
+        $boxShadowColorDisabled
+      );
     }
   }
 }

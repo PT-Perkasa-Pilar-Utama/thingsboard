@@ -119,10 +119,10 @@
     .tb-command-code {
       .code-wrapper {
         padding: 0;
-        pre[class*=language-] {
+        pre[class*="language-"] {
           margin: 0;
-          background: #F3F6FA;
-          border-color: #305680;
+          background: #f3f6fa;
+          border-color: #004aad;
           padding-right: 38px;
           padding-bottom: 4px;
           min-height: 42px;
@@ -139,8 +139,9 @@
         p {
           color: #305680;
         }
-        p, div {
-          background-color: #F3F6FA;
+        p,
+        div {
+          background-color: #f3f6fa;
         }
         div {
           img {

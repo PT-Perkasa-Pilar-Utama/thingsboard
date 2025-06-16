@@ -23,13 +23,16 @@
   }
   mat-sidenav.tb-site-sidenav {
     width: 250px;
-    @media (max-width:456px) {
+    background-color: #ffffff;
+    border-right: 1px solid #e0e0e0;
+    @media (max-width: 456px) {
       width: calc(100% - 56px);
     }
     .tb-nav-header {
       z-index: 2;
       flex-shrink: 0;
       white-space: nowrap;
+      background-color: #ffffff;
       .tb-nav-header-toolbar {
         min-height: 64px;
         height: inherit;
@@ -37,7 +40,8 @@
         z-index: 2;
         flex-shrink: 0;
         white-space: nowrap;
-        border-bottom: 1px solid rgba(0, 0, 0, .12);
+        background-color: #ffffff;
+        border-bottom: 1px solid #e0e0e0;
         & > div {
           height: 64px;
           .tb-logo-title {
@@ -54,13 +58,24 @@
       overflow-y: auto;
       height: inherit;
       padding: 0;
+      background-color: #ffffff;
     }
   }
   .tb-primary-toolbar {
     z-index: 2;
+    color: #1e1e1e;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e0e0e0;
     h1 {
       font-size: 24px !important;
       font-weight: 400 !important;
+      color: #1e1e1e;
+    }
+    button {
+      color: #1e1e1e;
+    }
+    .mat-icon {
+      color: #1e1e1e;
     }
   }
   .tb-main-content {

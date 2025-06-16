@@ -15,47 +15,104 @@
  */
 $defaultBorderRadius: 4px;
 
-$defaultCheckedMainColor: #FFFFFF;
-$defaultCheckedBackgroundColor: #305680;
-$defaultCheckedBorderColor: #305680;
+$defaultCheckedMainColor: #ffffff;
+$defaultCheckedBackgroundColor: #004aad;
+$defaultCheckedBorderColor: #004aad;
 
 $defaultUncheckedMainColor: rgba(0, 0, 0, 0.76);
-$defaultUncheckedBackgroundColor: #E8E8E8;
-$defaultUncheckedBorderColor: #E8E8E8;
+$defaultUncheckedBackgroundColor: #e8e8e8;
+$defaultUncheckedBorderColor: #e8e8e8;
 
-$defaultCheckedMainColorDisabled: #FFFFFFCC;
+$defaultCheckedMainColorDisabled: #ffffffcc;
 $defaultCheckedBackgroundColorDisabled: rgba(0, 0, 0, 0.12);
 $defaultCheckedBorderColorDisabled: rgba(0, 0, 0, 0.12);
 
 $defaultUncheckedMainColorDisabled: rgba(0, 0, 0, 0.12);
-$defaultUncheckedBackgroundColorDisabled: #E8E8E8;
-$defaultUncheckedBorderColorDisabled: #E8E8E8;
+$defaultUncheckedBackgroundColorDisabled: #e8e8e8;
+$defaultUncheckedBorderColorDisabled: #e8e8e8;
 
-$buttonBorderRadius: var(--tb-widget-button-toggle-border-radius, $defaultBorderRadius);
+$buttonBorderRadius: var(
+  --tb-widget-button-toggle-border-radius,
+  $defaultBorderRadius
+);
 
-$mainCheckedColorEnabled: var(--tb-widget-button-toggle-main-checked-color-enabled, $defaultCheckedMainColor);
-$backgroundCheckedColorEnabled: var(--tb-widget-button-toggle-background-checked-color-enabled, $defaultCheckedBackgroundColor);
-$borderCheckedColorEnabled: var(--tb-widget-button-toggle-border-checked-color-enabled, $defaultCheckedBorderColor);
+$mainCheckedColorEnabled: var(
+  --tb-widget-button-toggle-main-checked-color-enabled,
+  $defaultCheckedMainColor
+);
+$backgroundCheckedColorEnabled: var(
+  --tb-widget-button-toggle-background-checked-color-enabled,
+  $defaultCheckedBackgroundColor
+);
+$borderCheckedColorEnabled: var(
+  --tb-widget-button-toggle-border-checked-color-enabled,
+  $defaultCheckedBorderColor
+);
 
-$mainUncheckedColorEnabled: var(--tb-widget-button-toggle-main-unchecked-color-enabled, $defaultUncheckedMainColor);
-$backgroundUncheckedColorEnabled: var(--tb-widget-button-toggle-background-unchecked-color-enabled, $defaultUncheckedBackgroundColor);
-$borderUncheckedColorEnabled: var(--tb-widget-button-toggle-border-unchecked-color-enabled, $defaultUncheckedBorderColor);
+$mainUncheckedColorEnabled: var(
+  --tb-widget-button-toggle-main-unchecked-color-enabled,
+  $defaultUncheckedMainColor
+);
+$backgroundUncheckedColorEnabled: var(
+  --tb-widget-button-toggle-background-unchecked-color-enabled,
+  $defaultUncheckedBackgroundColor
+);
+$borderUncheckedColorEnabled: var(
+  --tb-widget-button-toggle-border-unchecked-color-enabled,
+  $defaultUncheckedBorderColor
+);
 
-$mainCheckedColorDisabled: var(--tb-widget-button-toggle-main-checked-color-disabled, $defaultCheckedMainColorDisabled);
-$backgroundCheckedColorDisabled: var(--tb-widget-button-toggle-background-checked-color-disabled, $defaultCheckedBackgroundColorDisabled);
-$borderCheckedColorDisabled: var(--tb-widget-button-toggle-border-checked-color-disabled, $defaultCheckedBorderColorDisabled);
+$mainCheckedColorDisabled: var(
+  --tb-widget-button-toggle-main-checked-color-disabled,
+  $defaultCheckedMainColorDisabled
+);
+$backgroundCheckedColorDisabled: var(
+  --tb-widget-button-toggle-background-checked-color-disabled,
+  $defaultCheckedBackgroundColorDisabled
+);
+$borderCheckedColorDisabled: var(
+  --tb-widget-button-toggle-border-checked-color-disabled,
+  $defaultCheckedBorderColorDisabled
+);
 
-$mainUncheckedColorDisabled: var(--tb-widget-button-toggle-main-unchecked-color-disabled, $defaultUncheckedMainColorDisabled);
-$backgroundUncheckedColorDisabled: var(--tb-widget-button-toggle-background-unchecked-color-disabled, $defaultUncheckedBackgroundColorDisabled);
-$borderUncheckedColorDisabled: var(--tb-widget-button-toggle-border-unchecked-color-disabled, $defaultUncheckedBorderColorDisabled);
+$mainUncheckedColorDisabled: var(
+  --tb-widget-button-toggle-main-unchecked-color-disabled,
+  $defaultUncheckedMainColorDisabled
+);
+$backgroundUncheckedColorDisabled: var(
+  --tb-widget-button-toggle-background-unchecked-color-disabled,
+  $defaultUncheckedBackgroundColorDisabled
+);
+$borderUncheckedColorDisabled: var(
+  --tb-widget-button-toggle-border-unchecked-color-disabled,
+  $defaultUncheckedBorderColorDisabled
+);
 
-$mainCheckedColorHovered: var(--tb-widget-button-toggle-main-checked-color-hovered, $defaultCheckedMainColor);
-$backgroundCheckedColorHovered: var(--tb-widget-button-toggle-background-checked-color-hovered, $defaultCheckedBackgroundColor);
-$borderCheckedColorHovered: var(--tb-widget-button-toggle-border-checked-color-hovered, $defaultCheckedBorderColor);
+$mainCheckedColorHovered: var(
+  --tb-widget-button-toggle-main-checked-color-hovered,
+  $defaultCheckedMainColor
+);
+$backgroundCheckedColorHovered: var(
+  --tb-widget-button-toggle-background-checked-color-hovered,
+  $defaultCheckedBackgroundColor
+);
+$borderCheckedColorHovered: var(
+  --tb-widget-button-toggle-border-checked-color-hovered,
+  $defaultCheckedBorderColor
+);
 
-$mainUncheckedColorHovered: var(--tb-widget-button-toggle-main-unchecked-color-hovered, $defaultCheckedMainColor);
-$backgroundUncheckedColorHovered: var(--tb-widget-button-toggle-background-unchecked-color-hovered, $defaultCheckedBackgroundColor);
-$borderUncheckedColorHovered: var(--tb-widget-button-toggle-border-unchecked-color-hovered, $defaultCheckedBorderColor);
+$mainUncheckedColorHovered: var(
+  --tb-widget-button-toggle-main-unchecked-color-hovered,
+  $defaultCheckedMainColor
+);
+$backgroundUncheckedColorHovered: var(
+  --tb-widget-button-toggle-background-unchecked-color-hovered,
+  $defaultCheckedBackgroundColor
+);
+$borderUncheckedColorHovered: var(
+  --tb-widget-button-toggle-border-unchecked-color-hovered,
+  $defaultCheckedBorderColor
+);
 
 @mixin _tb-widget-button-styles($main, $background, $boxShadow) {
   color: $main;
@@ -110,11 +167,19 @@ $borderUncheckedColorHovered: var(--tb-widget-button-toggle-border-unchecked-col
 
       &.tb-hover-state {
         .mat-button-toggle-button {
-          @include _tb-widget-button-styles($mainUncheckedColorHovered, $backgroundUncheckedColorHovered, $borderUncheckedColorHovered);
+          @include _tb-widget-button-styles(
+            $mainUncheckedColorHovered,
+            $backgroundUncheckedColorHovered,
+            $borderUncheckedColorHovered
+          );
         }
         &.mat-button-toggle-checked {
           .mat-button-toggle-button {
-            @include _tb-widget-button-styles($mainCheckedColorHovered, $backgroundCheckedColorHovered, $borderCheckedColorHovered);
+            @include _tb-widget-button-styles(
+              $mainCheckedColorHovered,
+              $backgroundCheckedColorHovered,
+              $borderCheckedColorHovered
+            );
           }
         }
       }
@@ -125,7 +190,11 @@ $borderUncheckedColorHovered: var(--tb-widget-button-toggle-border-unchecked-col
         justify-content: center;
         height: 100%;
         border-radius: $buttonBorderRadius;
-        @include _tb-widget-button-styles($mainUncheckedColorEnabled, $backgroundUncheckedColorEnabled, $borderUncheckedColorEnabled);
+        @include _tb-widget-button-styles(
+          $mainUncheckedColorEnabled,
+          $backgroundUncheckedColorEnabled,
+          $borderUncheckedColorEnabled
+        );
         .mat-button-toggle-label-content {
           .mat-pseudo-checkbox {
             display: none;
@@ -134,18 +203,21 @@ $borderUncheckedColorHovered: var(--tb-widget-button-toggle-border-unchecked-col
       }
       &.mat-button-toggle-checked {
         .mat-button-toggle-button {
-          @include _tb-widget-button-styles($mainCheckedColorEnabled, $backgroundCheckedColorEnabled, $borderCheckedColorEnabled);
-
+          @include _tb-widget-button-styles(
+            $mainCheckedColorEnabled,
+            $backgroundCheckedColorEnabled,
+            $borderCheckedColorEnabled
+          );
         }
       }
-
     }
     &.tb-pointer-events {
       .mat-button-toggle.mat-button-toggle-appearance-standard {
         .mat-button-toggle-button {
           pointer-events: none;
         }
-        .mat-button-toggle-focus-overlay, .mat-button-toggle-ripple {
+        .mat-button-toggle-focus-overlay,
+        .mat-button-toggle-ripple {
           opacity: 0;
         }
       }
@@ -154,34 +226,53 @@ $borderUncheckedColorHovered: var(--tb-widget-button-toggle-border-unchecked-col
       .mat-button-toggle.mat-button-toggle-appearance-standard {
         &:hover {
           .mat-button-toggle-button {
-            @include _tb-widget-button-styles($mainUncheckedColorHovered, $backgroundUncheckedColorHovered, $borderUncheckedColorHovered);
+            @include _tb-widget-button-styles(
+              $mainUncheckedColorHovered,
+              $backgroundUncheckedColorHovered,
+              $borderUncheckedColorHovered
+            );
           }
           &.mat-button-toggle-checked {
             .mat-button-toggle-button {
-              @include _tb-widget-button-styles($mainCheckedColorHovered, $backgroundCheckedColorHovered, $borderCheckedColorHovered);
+              @include _tb-widget-button-styles(
+                $mainCheckedColorHovered,
+                $backgroundCheckedColorHovered,
+                $borderCheckedColorHovered
+              );
             }
           }
         }
       }
     }
-    &:disabled, &.tb-disabled-state {
+    &:disabled,
+    &.tb-disabled-state {
       pointer-events: none;
       .mat-button-toggle.mat-button-toggle-appearance-standard {
         .mat-button-toggle-button {
-          @include _tb-widget-button-styles($mainUncheckedColorDisabled, $backgroundUncheckedColorDisabled, $borderUncheckedColorDisabled);
+          @include _tb-widget-button-styles(
+            $mainUncheckedColorDisabled,
+            $backgroundUncheckedColorDisabled,
+            $borderUncheckedColorDisabled
+          );
         }
 
         &.mat-button-toggle-checked {
           .mat-button-toggle-button {
-            @include _tb-widget-button-styles($mainCheckedColorDisabled, $backgroundCheckedColorDisabled, $borderCheckedColorDisabled);
+            @include _tb-widget-button-styles(
+              $mainCheckedColorDisabled,
+              $backgroundCheckedColorDisabled,
+              $borderCheckedColorDisabled
+            );
           }
         }
       }
-      .mat-button-toggle-focus-overlay, .mat-button-toggle-ripple {
+      .mat-button-toggle-focus-overlay,
+      .mat-button-toggle-ripple {
         opacity: 0;
       }
     }
-    .mat-button-toggle-focus-overlay, .mat-button-toggle-ripple {
+    .mat-button-toggle-focus-overlay,
+    .mat-button-toggle-ripple {
       border-radius: inherit;
     }
   }

@@ -19,11 +19,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  appTitle: 'ThingsBoard',
+  appTitle: 'HighScope',
   production: false,
-// @ts-ignore
+  // @ts-ignore
   tbVersion: TB_VERSION,
-// @ts-ignore
+  // @ts-ignore
   supportedLangs: SUPPORTED_LANGS,
   defaultLang: 'en_US'
 };

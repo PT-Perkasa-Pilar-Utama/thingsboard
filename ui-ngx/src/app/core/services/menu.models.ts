@@ -696,6 +696,9 @@ const menuFilters = new Map<MenuId, MenuFilter>([
   ],
   [
     MenuId.rulechain_templates, (authState) => authState.edgesSupportEnabled
+  ],
+  [
+    MenuId.entities, (authState) => authState.authUser.authority !== Authority.CUSTOMER_USER
   ]
 ]);
 
@@ -703,62 +706,62 @@ const defaultUserMenuMap = new Map<Authority, MenuReference[]>([
   [
     Authority.SYS_ADMIN,
     [
-      {id: MenuId.home},
-      {id: MenuId.tenants},
-      {id: MenuId.tenant_profiles},
+      { id: MenuId.home },
+      { id: MenuId.tenants },
+      { id: MenuId.tenant_profiles },
       {
         id: MenuId.resources,
         pages: [
           {
             id: MenuId.widget_library,
             pages: [
-              {id: MenuId.widget_types},
-              {id: MenuId.widgets_bundles}
+              { id: MenuId.widget_types },
+              { id: MenuId.widgets_bundles }
             ]
           },
-          {id: MenuId.images},
-          {id: MenuId.scada_symbols},
-          {id: MenuId.javascript_library},
-          {id: MenuId.resources_library}
+          { id: MenuId.images },
+          { id: MenuId.scada_symbols },
+          { id: MenuId.javascript_library },
+          { id: MenuId.resources_library }
         ]
       },
       {
         id: MenuId.notifications_center,
         pages: [
-          {id: MenuId.notification_inbox},
-          {id: MenuId.notification_sent},
-          {id: MenuId.notification_recipients},
-          {id: MenuId.notification_templates},
-          {id: MenuId.notification_rules}
+          { id: MenuId.notification_inbox },
+          { id: MenuId.notification_sent },
+          { id: MenuId.notification_recipients },
+          { id: MenuId.notification_templates },
+          { id: MenuId.notification_rules }
         ]
       },
       {
         id: MenuId.mobile_center,
         pages: [
-          {id: MenuId.mobile_bundles},
-          {id: MenuId.mobile_apps},
-          {id: MenuId.mobile_qr_code_widget}
+          { id: MenuId.mobile_bundles },
+          { id: MenuId.mobile_apps },
+          { id: MenuId.mobile_qr_code_widget }
         ]
       },
       {
         id: MenuId.settings,
         pages: [
-          {id: MenuId.general},
-          {id: MenuId.mail_server},
-          {id: MenuId.notification_settings},
-          {id: MenuId.queues}
+          { id: MenuId.general },
+          { id: MenuId.mail_server },
+          { id: MenuId.notification_settings },
+          { id: MenuId.queues }
         ]
       },
       {
         id: MenuId.security_settings,
         pages: [
-          {id: MenuId.security_settings_general},
-          {id: MenuId.two_fa},
+          { id: MenuId.security_settings_general },
+          { id: MenuId.two_fa },
           {
             id: MenuId.oauth2,
             pages: [
-              {id: MenuId.domains},
-              {id: MenuId.clients}
+              { id: MenuId.domains },
+              { id: MenuId.clients }
             ]
           }
         ]
@@ -768,39 +771,39 @@ const defaultUserMenuMap = new Map<Authority, MenuReference[]>([
   [
     Authority.TENANT_ADMIN,
     [
-      {id: MenuId.home},
-      {id: MenuId.alarms},
-      {id: MenuId.dashboards},
+      { id: MenuId.home },
+      { id: MenuId.alarms },
+      { id: MenuId.dashboards },
       {
         id: MenuId.entities,
         pages: [
-          {id: MenuId.devices},
-          {id: MenuId.assets},
-          {id: MenuId.entity_views},
-          {id: MenuId.gateways}
+          { id: MenuId.devices },
+          { id: MenuId.assets },
+          { id: MenuId.entity_views },
+          { id: MenuId.gateways }
         ]
       },
       {
         id: MenuId.profiles,
         pages: [
-          {id: MenuId.device_profiles},
-          {id: MenuId.asset_profiles}
+          { id: MenuId.device_profiles },
+          { id: MenuId.asset_profiles }
         ]
       },
-      {id: MenuId.customers},
-      {id: MenuId.rule_chains},
+      { id: MenuId.customers },
+      { id: MenuId.rule_chains },
       {
         id: MenuId.edge_management,
         pages: [
-          {id: MenuId.edges},
-          {id: MenuId.rulechain_templates}
+          { id: MenuId.edges },
+          { id: MenuId.rulechain_templates }
         ]
       },
       {
         id: MenuId.features,
         pages: [
-          {id: MenuId.otaUpdates},
-          {id: MenuId.version_control}
+          { id: MenuId.otaUpdates },
+          { id: MenuId.version_control }
         ]
       },
       {
@@ -809,76 +812,75 @@ const defaultUserMenuMap = new Map<Authority, MenuReference[]>([
           {
             id: MenuId.widget_library,
             pages: [
-              {id: MenuId.widget_types},
-              {id: MenuId.widgets_bundles}
+              { id: MenuId.widget_types },
+              { id: MenuId.widgets_bundles }
             ]
           },
-          {id: MenuId.images},
-          {id: MenuId.scada_symbols},
-          {id: MenuId.javascript_library},
-          {id: MenuId.resources_library}
+          { id: MenuId.images },
+          { id: MenuId.scada_symbols },
+          { id: MenuId.javascript_library },
+          { id: MenuId.resources_library }
         ]
       },
       {
         id: MenuId.notifications_center,
         pages: [
-          {id: MenuId.notification_inbox},
-          {id: MenuId.notification_sent},
-          {id: MenuId.notification_recipients},
-          {id: MenuId.notification_templates},
-          {id: MenuId.notification_rules}
+          { id: MenuId.notification_inbox },
+          { id: MenuId.notification_sent },
+          { id: MenuId.notification_recipients },
+          { id: MenuId.notification_templates },
+          { id: MenuId.notification_rules }
         ]
       },
       {
         id: MenuId.mobile_center,
         pages: [
-          {id: MenuId.mobile_bundles},
-          {id: MenuId.mobile_apps}
+          { id: MenuId.mobile_bundles },
+          { id: MenuId.mobile_apps }
         ]
       },
-      {id: MenuId.api_usage},
+      { id: MenuId.api_usage },
       {
         id: MenuId.settings,
         pages: [
-          {id: MenuId.home_settings},
-          {id: MenuId.notification_settings},
-          {id: MenuId.repository_settings},
-          {id: MenuId.auto_commit_settings}
+          { id: MenuId.home_settings },
+          { id: MenuId.notification_settings },
+          { id: MenuId.repository_settings },
+          { id: MenuId.auto_commit_settings }
         ]
       },
       {
         id: MenuId.security_settings,
         pages: [
-          {id: MenuId.audit_log},
+          { id: MenuId.audit_log },
           {
             id: MenuId.oauth2,
             pages: [
-              {id: MenuId.clients}
+              { id: MenuId.clients }
             ]
           }
         ]
       }
     ]
-  ],
-  [
+  ], [
     Authority.CUSTOMER_USER,
     [
-      {id: MenuId.home},
-      {id: MenuId.alarms},
-      {id: MenuId.dashboards},
+      { id: MenuId.home },
+      { id: MenuId.alarms },
+      { id: MenuId.dashboards },
       {
         id: MenuId.entities,
         pages: [
-          {id: MenuId.devices},
-          {id: MenuId.assets},
-          {id: MenuId.entity_views}
+          { id: MenuId.devices },
+          { id: MenuId.assets },
+          { id: MenuId.entity_views }
         ]
       },
-      {id: MenuId.edge_instances},
+      { id: MenuId.edge_instances },
       {
         id: MenuId.notifications_center,
         pages: [
-          {id: MenuId.notification_inbox}
+          { id: MenuId.notification_inbox }
         ]
       }
     ]
@@ -900,8 +902,8 @@ const defaultHomeSectionMap = new Map<Authority, HomeSectionReference[]>([
       {
         name: 'admin.system-settings',
         places: [MenuId.general, MenuId.mail_server,
-          MenuId.notification_settings, MenuId.security_settings, MenuId.oauth2, MenuId.domains,
-          MenuId.clients, MenuId.two_fa, MenuId.resources_library, MenuId.queues]
+        MenuId.notification_settings, MenuId.security_settings, MenuId.oauth2, MenuId.domains,
+        MenuId.clients, MenuId.two_fa, MenuId.resources_library, MenuId.queues]
       }
     ]
   ],
@@ -949,22 +951,24 @@ const defaultHomeSectionMap = new Map<Authority, HomeSectionReference[]>([
         places: [MenuId.home_settings, MenuId.resources_library, MenuId.repository_settings, MenuId.auto_commit_settings]
       }
     ]
-  ],
-  [
+  ], [
     Authority.CUSTOMER_USER,
     [
-      {
-        name: 'asset.view-assets',
-        places: [MenuId.assets]
-      },
-      {
-        name: 'device.view-devices',
-        places: [MenuId.devices]
-      },
-      {
-        name: 'entity-view.management',
-        places: [MenuId.entity_views]
-      },
+      // Assets section hidden for customer users
+      // {
+      //   name: 'asset.view-assets',
+      //   places: [MenuId.assets]
+      // },
+      // Devices section hidden for customer users
+      // {
+      //   name: 'device.view-devices',
+      //   places: [MenuId.devices]
+      // },
+      // Entity views section hidden for customer users
+      // {
+      //   name: 'entity-view.management',
+      //   places: [MenuId.entity_views]
+      // },
       {
         name: 'edge.management',
         places: [MenuId.edge_instances]

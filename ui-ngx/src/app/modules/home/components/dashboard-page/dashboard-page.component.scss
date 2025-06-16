@@ -50,7 +50,7 @@ div.tb-dashboard-page {
       height: 38px;
       font-size: 2rem;
       font-weight: 500;
-      letter-spacing: .005em;
+      letter-spacing: 0.005em;
     }
   }
 
@@ -61,7 +61,7 @@ div.tb-dashboard-page {
     z-index: 13;
     pointer-events: none;
 
-    .dashboard_logo{
+    .dashboard_logo {
       height: 75%;
       margin-right: 16px;
     }
@@ -73,12 +73,12 @@ div.tb-dashboard-page {
 
     &.tb-dashboard-toolbar-closed {
       right: 18px;
-      transition: right .3s cubic-bezier(.55, 0, .55, .2) .2s;
+      transition: right 0.3s cubic-bezier(0.55, 0, 0.55, 0.2) 0.2s;
     }
   }
 
   .mat-divider-vertical.tb-toolbar-divider {
-    border-right-color: rgba(255,255,255,0.75);
+    border-right-color: rgba(255, 255, 255, 0.75);
     height: 30px;
   }
 
@@ -99,7 +99,7 @@ div.tb-dashboard-page {
           margin-top: $toolbar-height;
         }
         &.tb-dashboard-toolbar-animated {
-          transition: margin-top .3s cubic-bezier(.55, 0, .55, .2);
+          transition: margin-top 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
         }
       }
     }
@@ -108,7 +108,7 @@ div.tb-dashboard-page {
       margin-top: 0;
 
       &.tb-dashboard-toolbar-animated {
-        transition: margin-top .3s cubic-bezier(.55, 0, .55, .2) .2s;
+        transition: margin-top 0.3s cubic-bezier(0.55, 0, 0.55, 0.2) 0.2s;
       }
     }
   }
@@ -140,7 +140,13 @@ div.tb-dashboard-page {
 
         .layout-filler {
           flex: 1;
-          background: repeating-linear-gradient(-16deg, #d3d3d3, #d3d3d3 3px, #e0e0e0 3px, #e0e0e0 11px);
+          background: repeating-linear-gradient(
+            -16deg,
+            #d3d3d3,
+            #d3d3d3 3px,
+            #e0e0e0 3px,
+            #e0e0e0 11px
+          );
           border-bottom: 2px dashed #bdbdbd;
           border-right: 2px dashed #bdbdbd;
 
@@ -148,7 +154,7 @@ div.tb-dashboard-page {
           text-align: center;
           transform: rotate(180deg);
           color: #616161;
-          letter-spacing: .25px;
+          letter-spacing: 0.25px;
         }
       }
     }
@@ -167,31 +173,10 @@ div.tb-dashboard-page {
       }
     }
   }
-
   section.tb-header-buttons.tb-enter-edit-mode {
     top: 2px;
     .mdc-fab.tb-btn-edit {
-      opacity: .5;
+      opacity: 0.5;
     }
   }
-
-  section.tb-powered-by-footer {
-    position: absolute;
-    right: 25px;
-    bottom: 5px;
-    z-index: 30;
-    pointer-events: none;
-
-    span {
-      font-size: 12px;
-
-      a {
-        font-weight: 700;
-        text-decoration: none;
-        pointer-events: all;
-        border: none;
-      }
-    }
-  }
-
 }

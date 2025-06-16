@@ -15,11 +15,11 @@
 ///
 
 export const environment = {
-  appTitle: 'ThingsBoard',
+  appTitle: 'HighScope',
   production: true,
-// @ts-ignore
+  // @ts-ignore
   tbVersion: TB_VERSION,
-// @ts-ignore
+  // @ts-ignore
   supportedLangs: SUPPORTED_LANGS,
   defaultLang: 'en_US'
 };

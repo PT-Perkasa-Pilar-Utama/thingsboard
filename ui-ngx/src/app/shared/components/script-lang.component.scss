@@ -18,12 +18,17 @@
   &.mat-button-toggle-group-appearance-standard {
     border: none;
     border-radius: 18px;
-    .mat-button-toggle+.mat-button-toggle {
+    .mat-button-toggle + .mat-button-toggle {
       border-left: none;
     }
   }
   .mat-button-toggle {
-    --mat-standard-button-toggle-disabled-selected-state-background-color: rgba(0, 0, 0, 0.06);
+    --mat-standard-button-toggle-disabled-selected-state-background-color: rgba(
+      0,
+      0,
+      0,
+      0.06
+    );
     background: rgba(0, 0, 0, 0.06);
     height: 36px;
     align-items: center;
@@ -44,7 +49,7 @@
     margin: 2px;
   }
   .mat-button-toggle-checked .mat-button-toggle-button {
-    background-color: #305680;
+    background-color: #004aad;
     color: #fff;
     border-radius: 16px;
     margin-left: 2px;
@@ -60,10 +65,14 @@
       }
     }
   }
-  .mat-button-toggle-checked.mat-button-toggle-appearance-standard:not(.mat-button-toggle-disabled):hover .mat-button-toggle-focus-overlay {
-    opacity: .01;
+  .mat-button-toggle-checked.mat-button-toggle-appearance-standard:not(
+      .mat-button-toggle-disabled
+    ):hover
+    .mat-button-toggle-focus-overlay {
+    opacity: 0.01;
   }
-  .mat-button-toggle-appearance-standard.mat-button-toggle-disabled:hover .mat-button-toggle-focus-overlay {
+  .mat-button-toggle-appearance-standard.mat-button-toggle-disabled:hover
+    .mat-button-toggle-focus-overlay {
     opacity: 0;
   }
   .mat-button-toggle-disabled {
