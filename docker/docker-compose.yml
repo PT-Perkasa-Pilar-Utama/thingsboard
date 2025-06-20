@@ -193,6 +193,34 @@ services:
       - zookeeper
       - tb-core
 
+  tb-gateway:
+    image: thingsboard/tb-gateway:3.7-stable
+    container_name: tb-gateway
+    restart: always
+    # Ports bindings - required by some connectors
+    ports:
+      - "5000" # REST connector
+      # Uncomment and modify the following ports based on connector usage:
+      # - "1052:1052" # BACnet connector
+      # - "5026:5026" # Modbus TCP connector (Modbus Slave)
+      # - "50000:50000/tcp" # Socket connector with type TCP
+      # - "50000:50000/udp" # Socket connector with type UDP
+    # Necessary mapping for Linux
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # Environment variables
+    environment:
+      - host=host.docker.internal
+      - port=1883
+      - accessToken=SRwKtglupjzHG51PEqKK
+    # Volumes bind
+    volumes:
+      - tb-gw-config:/thingsboard_gateway/config
+      - tb-gw-logs:/thingsboard_gateway/logs
+      - tb-gw-extensions:/thingsboard_gateway/extensions
+    depends_on:
+      - tb-core
+      - tb-mqtt-transport
   haproxy:
     restart: always
     container_name: "${LOAD_BALANCER_NAME}"
@@ -207,6 +235,7 @@ services:
       - "1883:1883"
       - "7070:7070"
       - "9999:9999"
+      - "5000:5000"
     cap_add:
       - NET_ADMIN
     environment:
@@ -214,9 +243,16 @@ services:
       HTTPS_PORT: 443
       MQTT_PORT: 1883
       EDGES_RPC_PORT: 7070
+      GATEWAY_REST_PORT: 5000
       FORCE_HTTPS_REDIRECT: "false"
     links:
       - tb-core
       - tb-web-ui
       - tb-mqtt-transport
       - tb-http-transport
+      - tb-gateway
+
+volumes:
+  tb-gw-config:
+  tb-gw-logs:
+  tb-gw-extensions:
