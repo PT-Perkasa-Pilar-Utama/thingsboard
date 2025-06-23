@@ -865,8 +865,8 @@ const defaultUserMenuMap = new Map<Authority, MenuReference[]>([
   ], [
     Authority.CUSTOMER_USER,
     [
-      { id: MenuId.home },
-      { id: MenuId.alarms },
+      // { id: MenuId.home }, // Hidden for customer users
+      // { id: MenuId.alarms }, // Hidden for customer users
       { id: MenuId.dashboards },
       {
         id: MenuId.entities,
@@ -875,14 +875,14 @@ const defaultUserMenuMap = new Map<Authority, MenuReference[]>([
           { id: MenuId.assets },
           { id: MenuId.entity_views }
         ]
-      },
-      { id: MenuId.edge_instances },
-      {
-        id: MenuId.notifications_center,
-        pages: [
-          { id: MenuId.notification_inbox }
-        ]
       }
+      // { id: MenuId.edge_instances }, // Hidden for customer users
+      // {
+      //   id: MenuId.notifications_center,
+      //   pages: [
+      //     { id: MenuId.notification_inbox }
+      //   ]
+      // } // Hidden for customer users
     ]
   ]
 ]);
@@ -954,24 +954,17 @@ const defaultHomeSectionMap = new Map<Authority, HomeSectionReference[]>([
   ], [
     Authority.CUSTOMER_USER,
     [
-      // Assets section hidden for customer users
-      // {
-      //   name: 'asset.view-assets',
-      //   places: [MenuId.assets]
-      // },
-      // Devices section hidden for customer users
-      // {
-      //   name: 'device.view-devices',
-      //   places: [MenuId.devices]
-      // },
-      // Entity views section hidden for customer users
-      // {
-      //   name: 'entity-view.management',
-      //   places: [MenuId.entity_views]
-      // },
       {
-        name: 'edge.management',
-        places: [MenuId.edge_instances]
+        name: 'asset.view-assets',
+        places: [MenuId.assets]
+      },
+      {
+        name: 'device.view-devices',
+        places: [MenuId.devices]
+      },
+      {
+        name: 'entity-view.management',
+        places: [MenuId.entity_views]
       },
       {
         name: 'dashboard.view-dashboards',
