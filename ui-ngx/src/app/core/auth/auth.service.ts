@@ -48,7 +48,7 @@ import { TwoFactorAuthProviderType, TwoFaProviderInfo } from '@shared/models/two
 import { UserPasswordPolicy } from '@shared/models/settings.models';
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class AuthService {
 
@@ -113,22 +113,22 @@ export class AuthService {
   public login(loginRequest: LoginRequest): Observable<LoginResponse> {
     return this.http.post<LoginResponse>('/api/auth/login', loginRequest, defaultHttpOptions()).pipe(
       tap((loginResponse: LoginResponse) => {
-          this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
-          if (loginResponse.scope === Authority.PRE_VERIFICATION_TOKEN) {
-            this.router.navigateByUrl(`login/mfa`);
-          }
+        this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
+        if (loginResponse.scope === Authority.PRE_VERIFICATION_TOKEN) {
+          this.router.navigateByUrl(`login/mfa`);
         }
+      }
       ));
   }
 
   public checkTwoFaVerificationCode(providerType: TwoFactorAuthProviderType, verificationCode: number): Observable<LoginResponse> {
     return this.http.post<LoginResponse>
-    (`/api/auth/2fa/verification/check?providerType=${providerType}&verificationCode=${verificationCode}`,
-      null, defaultHttpOptions(false, true)).pipe(
-      tap((loginResponse: LoginResponse) => {
-          this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
-        }
-      ));
+      (`/api/auth/2fa/verification/check?providerType=${providerType}&verificationCode=${verificationCode}`,
+        null, defaultHttpOptions(false, true)).pipe(
+          tap((loginResponse: LoginResponse) => {
+            this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
+          }
+          ));
   }
 
   public publicLogin(publicId: string): Observable<LoginResponse> {
@@ -140,27 +140,27 @@ export class AuthService {
 
   public sendResetPasswordLink(email: string) {
     return this.http.post('/api/noauth/resetPasswordByEmail',
-      {email}, defaultHttpOptions());
+      { email }, defaultHttpOptions());
   }
 
   public activate(activateToken: string, password: string, sendActivationMail: boolean): Observable<LoginResponse> {
     return this.http.post<LoginResponse>(`/api/noauth/activate?sendActivationMail=${sendActivationMail}`,
-      {activateToken, password}, defaultHttpOptions()).pipe(
-      tap((loginResponse: LoginResponse) => {
+      { activateToken, password }, defaultHttpOptions()).pipe(
+        tap((loginResponse: LoginResponse) => {
           this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
         }
-      ));
+        ));
   }
 
   public resetPassword(resetToken: string, password: string): Observable<void> {
-    return this.http.post<void>('/api/noauth/resetPassword', {resetToken, password}, defaultHttpOptions());
+    return this.http.post<void>('/api/noauth/resetPassword', { resetToken, password }, defaultHttpOptions());
   }
 
   public changePassword(currentPassword: string, newPassword: string, config?: RequestConfig) {
-    return this.http.post('/api/auth/changePassword', {currentPassword, newPassword}, defaultHttpOptionsFromConfig(config)).pipe(
+    return this.http.post('/api/auth/changePassword', { currentPassword, newPassword }, defaultHttpOptionsFromConfig(config)).pipe(
       tap((loginResponse: LoginResponse) => {
-          this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, false);
-        }
+        this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, false);
+      }
       ));
   }
 
@@ -182,8 +182,8 @@ export class AuthService {
   public loginAsUser(userId: string) {
     return this.http.get<LoginResponse>(`/api/user/${userId}/token`, defaultHttpOptions()).pipe(
       tap((loginResponse: LoginResponse) => {
-          this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
-        }
+        this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, true);
+      }
       ));
   }
 
@@ -194,8 +194,8 @@ export class AuthService {
     if (!ignoreRequest) {
       this.http.post('/api/auth/logout', null, defaultHttpOptions(true, true))
         .subscribe(() => {
-            this.clearJwtToken();
-          },
+          this.clearJwtToken();
+        },
           () => {
             this.clearJwtToken();
           }
@@ -206,7 +206,7 @@ export class AuthService {
   }
 
   private notifyUserLoaded(isUserLoaded: boolean) {
-    this.store.dispatch(new ActionAuthLoadUser({isUserLoaded}));
+    this.store.dispatch(new ActionAuthLoadUser({ isUserLoaded }));
   }
 
   public gotoDefaultPlace(isAuthenticated: boolean) {
@@ -223,11 +223,11 @@ export class AuthService {
     const url = '/api/noauth/oauth2Clients?platform=' + PlatformType.WEB;
     return this.http.post<Array<OAuth2ClientLoginInfo>>(url,
       null, defaultHttpOptions()).pipe(
-      catchError(err => of([])),
-      tap((OAuth2Clients) => {
-        this.oauth2Clients = OAuth2Clients;
-      })
-    );
+        catchError(err => of([])),
+        tap((OAuth2Clients) => {
+          this.oauth2Clients = OAuth2Clients;
+        })
+      );
   }
 
   public getAvailableTwoFaLoginProviders(): Observable<Array<TwoFaProviderInfo>> {
@@ -250,7 +250,7 @@ export class AuthService {
               return true;
             }
           } else if (path.startsWith('dashboard.') || path.startsWith('dashboards.') &&
-              authState.allowedDashboardIds.indexOf(params.dashboardId) > -1) {
+            authState.allowedDashboardIds.indexOf(params.dashboardId) > -1) {
             return false;
           } else {
             return true;
@@ -272,7 +272,12 @@ export class AuthService {
           this.redirectUrl = null;
           result = this.router.parseUrl(redirectUrl);
         } else {
-          result = this.router.parseUrl('home');
+          // Default routing berdasarkan authority user
+          if (authState.authUser.authority === Authority.CUSTOMER_USER) {
+            result = this.router.parseUrl('dashboards');
+          } else {
+            result = this.router.parseUrl('home');
+          }
         }
         if (authState.authUser.authority === Authority.TENANT_ADMIN || authState.authUser.authority === Authority.CUSTOMER_USER) {
           if (this.userHasDefaultDashboard(authState)) {
@@ -340,9 +345,9 @@ export class AuthService {
         };
         return this.http.post<LoginResponse>('/api/auth/login', loginRequest, defaultHttpOptions()).pipe(
           mergeMap((loginResponse: LoginResponse) => {
-              this.updateAndValidateTokens(loginResponse.token, loginResponse.refreshToken, false);
-              return this.procceedJwtTokenValidate();
-            }
+            this.updateAndValidateTokens(loginResponse.token, loginResponse.refreshToken, false);
+            return this.procceedJwtTokenValidate();
+          }
           )
         );
       } else if (loginError) {
@@ -391,7 +396,7 @@ export class AuthService {
         if (authPayload.authUser?.isPublic) {
           this.loadSystemParams().subscribe(
             (sysParams) => {
-              authPayload = {...authPayload, ...sysParams};
+              authPayload = { ...authPayload, ...sysParams };
               loadUserSubject.next(authPayload);
               loadUserSubject.complete();
             },
@@ -412,7 +417,7 @@ export class AuthService {
               }
               this.loadSystemParams().subscribe(
                 (sysParams) => {
-                  authPayload = {...authPayload, ...sysParams};
+                  authPayload = { ...authPayload, ...sysParams };
                   loadUserSubject.next(authPayload);
                   loadUserSubject.complete();
                 },
@@ -450,39 +455,39 @@ export class AuthService {
   public refreshJwtToken(loadUserElseStoreJwtToken = true): Observable<LoginResponse> {
     let response: Observable<LoginResponse> = this.refreshTokenSubject;
     if (this.refreshTokenSubject === null) {
-        this.refreshTokenSubject = new ReplaySubject<LoginResponse>(1);
-        response = this.refreshTokenSubject;
-        const refreshToken = AuthService._storeGet('refresh_token');
-        const refreshTokenValid = AuthService.isTokenValid('refresh_token');
-        this.setUserFromJwtToken(null, null, false);
-        if (!refreshTokenValid) {
-          this.translate.get('access.refresh-token-expired').subscribe(
-            (translation) => {
-              this.refreshTokenSubject.error(new Error(translation));
-              this.refreshTokenSubject = null;
-            }
-          );
-        } else {
-          const refreshTokenRequest = {
-            refreshToken
-          };
-          const refreshObservable = this.http.post<LoginResponse>('/api/auth/token', refreshTokenRequest, defaultHttpOptions());
-          refreshObservable.subscribe((loginResponse: LoginResponse) => {
-            if (loadUserElseStoreJwtToken) {
-              this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, false);
-            } else {
-              this.updateAndValidateTokens(loginResponse.token, loginResponse.refreshToken, true);
-            }
-            this.updatedAuthUserFromToken(loginResponse.token);
-            this.refreshTokenSubject.next(loginResponse);
-            this.refreshTokenSubject.complete();
+      this.refreshTokenSubject = new ReplaySubject<LoginResponse>(1);
+      response = this.refreshTokenSubject;
+      const refreshToken = AuthService._storeGet('refresh_token');
+      const refreshTokenValid = AuthService.isTokenValid('refresh_token');
+      this.setUserFromJwtToken(null, null, false);
+      if (!refreshTokenValid) {
+        this.translate.get('access.refresh-token-expired').subscribe(
+          (translation) => {
+            this.refreshTokenSubject.error(new Error(translation));
             this.refreshTokenSubject = null;
-          }, () => {
-            this.clearJwtToken();
-            this.refreshTokenSubject.error(new Error(this.translate.instant('access.refresh-token-failed')));
-            this.refreshTokenSubject = null;
-          });
-        }
+          }
+        );
+      } else {
+        const refreshTokenRequest = {
+          refreshToken
+        };
+        const refreshObservable = this.http.post<LoginResponse>('/api/auth/token', refreshTokenRequest, defaultHttpOptions());
+        refreshObservable.subscribe((loginResponse: LoginResponse) => {
+          if (loadUserElseStoreJwtToken) {
+            this.setUserFromJwtToken(loginResponse.token, loginResponse.refreshToken, false);
+          } else {
+            this.updateAndValidateTokens(loginResponse.token, loginResponse.refreshToken, true);
+          }
+          this.updatedAuthUserFromToken(loginResponse.token);
+          this.refreshTokenSubject.next(loginResponse);
+          this.refreshTokenSubject.complete();
+          this.refreshTokenSubject = null;
+        }, () => {
+          this.clearJwtToken();
+          this.refreshTokenSubject.error(new Error(this.translate.instant('access.refresh-token-failed')));
+          this.refreshTokenSubject = null;
+        });
+      }
     }
     return response;
   }

@@ -83,10 +83,107 @@
         }
       }
     }
+  }
 
-    .tb-action-button button[mat-raised-button][color="accent"] {
-      background-color: #fff !important;
-      color: #222 !important;
+  // Override mat-card untuk login form - background putih dengan shadow tipis
+  mat-card {
+    background-color: #fff !important;
+    box-shadow: 0px 5px 20px 15px rgba(0, 0, 0, 0.1) !important;
+  }
+  // Override tombol login - ganti dari orange ke biru
+  .tb-action-button button[mat-raised-button][color="accent"] {
+    background-color: #004aad !important;
+    color: #fff !important;
+
+    &:hover {
+      background-color: #0066cc !important;
+    }
+
+    &:disabled {
+      background-color: rgba(0, 74, 173, 0.6) !important;
+      color: rgba(255, 255, 255, 0.7) !important;
+    }
+  }
+
+  // Override warna ikon material (email dan lock) pada form input
+  mat-form-field mat-icon[matprefix] {
+    color: #004aad !important;
+  }
+
+  // Override warna label form field (email, password) - dari putih ke biru
+  // Tetapi tetap merah saat error
+  mat-form-field:not(.mat-form-field-invalid) .mdc-floating-label,
+  mat-form-field:not(.mat-form-field-invalid) mat-label {
+    color: #004aad !important;
+  }
+
+  // Pastikan label tetap merah saat ada error
+  mat-form-field.mat-form-field-invalid .mdc-floating-label,
+  mat-form-field.mat-form-field-invalid mat-label {
+    color: #f44336 !important;
+  }
+
+  // Override warna teks input dari putih ke hitam/gelap
+  mat-form-field input.mat-mdc-input-element,
+  mat-form-field .mat-mdc-input-element {
+    color: #333 !important;
+  }
+
+  // Override warna placeholder
+  mat-form-field input.mat-mdc-input-element::placeholder {
+    color: #666 !important;
+  }
+
+  // Override warna tombol visibility toggle (tb-toggle-password component)
+  tb-toggle-password button[mat-icon-button] mat-icon,
+  tb-toggle-password .mat-mdc-icon-button mat-icon {
+    color: #004aad !important;
+  }
+
+  // Override warna tombol visibility saat hover
+  tb-toggle-password button[mat-icon-button]:hover mat-icon,
+  tb-toggle-password .mat-mdc-icon-button:hover mat-icon {
+    color: #0066cc !important;
+  }
+
+  // CSS lebih kuat untuk toggle button - berbagai kemungkinan selector
+  mat-form-field[matsuffix] tb-toggle-password button mat-icon,
+  mat-form-field tb-toggle-password button[mat-icon-button] mat-icon,
+  mat-form-field tb-toggle-password .mat-mdc-icon-button mat-icon,
+  tb-toggle-password button mat-icon,
+  tb-toggle-password mat-icon,
+  [matsuffix] tb-toggle-password button mat-icon,
+  [matsuffix] tb-toggle-password mat-icon {
+    color: #004aad !important;
+    fill: #004aad !important;
+  }
+
+  // CSS untuk semua icon button dalam form field
+  mat-form-field button[mat-icon-button],
+  mat-form-field .mat-mdc-icon-button {
+    color: #004aad !important;
+
+    mat-icon {
+      color: #004aad !important;
+      fill: #004aad !important;
+    }
+  }
+
+  // CSS global untuk memastikan visibility toggle terlihat
+  ::ng-deep tb-toggle-password button mat-icon,
+  ::ng-deep tb-toggle-password .material-icons,
+  ::ng-deep mat-form-field[matsuffix] mat-icon {
+    color: #004aad !important;
+    fill: #004aad !important;
+  }
+
+  // Override warna tombol "Forgot Password"
+  .tb-reset-password {
+    color: #004aad !important;
+
+    &:hover {
+      color: #0066cc !important;
+      background-color: rgba(0, 74, 173, 0.04) !important;
     }
   }
 }
