@@ -207,7 +207,6 @@ services:
       - "1883:1883"
       - "7070:7070"
       - "9999:9999"
-      - "5000:5000"
     cap_add:
       - NET_ADMIN
     environment:
